@@ -1,3 +1,4 @@
+/* General styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #000;
@@ -6,6 +7,7 @@ body {
     padding: 0;
 }
 
+/* Navbar styles */
 .navbar {
     background-color: #333;
     position: sticky;
@@ -153,24 +155,105 @@ button:hover {
     padding: 15px;
     border-radius: 8px;
     width: 80%;
-    max-width: 600px;
+    max-width: 800px;
     height: 95vh;
     overflow: hidden;
-    text-align: center;
+    display: flex;
+    flex-direction: column; 
     position: relative;
 }
 
 .popup-content .movie-poster {
-    max-width: 250px;
-    max-height: 270px;
+    flex-shrink: 0;
+    width: 330px;
+    height: 80%;
     border: 2px solid black;
     border-radius: 7px;
-    margin: 0 auto 15px;
-    display: block;
+    margin-right: 50px;
+    margin-top: auto;
 }
 
 .popup-content .description {
-    margin-bottom: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 20px;
+    margin-top: -400px;
+    margin-left: 370px;
+}
+
+.popup-content .description h2 {
+    margin-top: 0;
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.popup-content .description p {
+    margin: 5px 0;
+    text-align: left;
+}
+
+#popupTitle {
+    white-space: nowrap; 
+    width: 100%; 
+    text-align: left; 
+    margin-top: 30px;
+    color: rgba(16, 243, 224, 0.932);
+}
+
+.popup-content .description p {
+    margin: 5px 0;
+    font-family: math;
+    font-size: 21px;
+}
+
+.popup-content .description span.stars {
+ 
+    color: #FFD700; /* Star color */
+}
+
+.popup-content .description strong {
+    font-weight: bold;
+}
+
+/* Font colors as per specifications */
+.popup-content .description p:nth-child(1) strong {
+    font-size: 20px;
+    font-family: cursive;
+    color: violet; 
+}
+
+.popup-content .description p:nth-child(2) strong {
+    font-size: 20px;
+    font-family: cursive;
+    color: rgb(218, 221, 12); 
+}
+
+.popup-content .description p:nth-child(3) strong {
+    font-size: 20px;
+    font-family: cursive;
+    color: rgb(15, 228, 15); 
+}
+
+.popup-content .description p:nth-child(4) strong {
+    font-size: 20px;
+    font-family: cursive;
+    color: rgb(218, 221, 12); 
+}
+
+.popup-content .description p:nth-child(5) strong {
+    font-size: 20px;
+    font-family: cursive;
+    color:rgb(15, 228, 15); 
+}
+
+.popup-content .description p:nth-child(6) strong {
+    font-size: 20px;
+    font-family: cursive;
+    color: rgb(218, 221, 12);
 }
 
 .close-btn {
@@ -224,4 +307,56 @@ button:hover {
 
 #goToTopBtn:hover {
     background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        margin-top: 20px;
+        justify-content: flex-start;
+    }
+
+    .navbar ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #movieList .movie {
+        width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        margin-right: 0;
+        padding: 8px;
+    }
+
+    #movieList .movie {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .popup-content {
+        padding: 10px;
+    }
 }

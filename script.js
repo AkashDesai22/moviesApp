@@ -13,7 +13,7 @@ const closeBtn = document.getElementById('closeBtn');
 const apiKey = 'd4a7e0b'; // API key for OMDB API
 
 // Initial fetch for homepage movies
-fetchMovies('tt3896198', 6); 
+fetchMovies('tt3896198', 9); 
 
 // Event listeners for navbar and search functionality
 searchButton.addEventListener('click', searchMovies);
@@ -139,13 +139,12 @@ function showMovieDetails(movie) {
 
     const details = `
         <div class="description">
-            <p><strong>Year:</strong> ${movie.Year}</p>
-            <p><strong>Rated:</strong> ${movie.Rated}</p>
-            <p><strong>Released:</strong> ${movie.Released}</p>
-            <p><strong>Genre:</strong> ${movie.Genre}</p>
-            <p><strong>Director:</strong> ${movie.Director}</p>
-            <p><strong>Actors:</strong> ${movie.Actors}</p>
-            <p><strong>Plot:</strong> ${movie.Plot}</p>
+            <p><strong>Release Year : </strong> ${movie.Year}</p>
+            <p><strong>Rating : </strong> ${movie.imdbRating} <span class="stars">${getStarRating(movie.imdbRating)}</span></p>
+            <p><strong>Genre : </strong> ${movie.Genre}</p>
+            <p><strong>Director : </strong> ${movie.Director}</p>
+            <p><strong>Actors : </strong> ${movie.Actors}</p>
+            <p><strong>Plot : </strong> ${movie.Plot}</p>
         </div>
     `;
 
@@ -153,6 +152,13 @@ function showMovieDetails(movie) {
 
     popup.style.visibility = 'visible';
     popup.style.opacity = '1';
+}
+
+// Function to generate star rating based on IMDb rating
+function getStarRating(rating) {
+    const numStars = Math.round(rating / 2);
+    const stars = '★'.repeat(numStars) + '☆'.repeat(5 - numStars);
+    return stars;
 }
 
 // Function to close the movie details popup
